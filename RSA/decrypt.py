@@ -1,0 +1,23 @@
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+modulus = int("0x548d0442f7a7d162b1ccac9a16dda62e75ab27c04dc1f3ada39968d611bbccc46e874fd3542c5c221d050d9704fc4a8ce2e299685a8bfdae0fb6fc9931ba5dfa5c9f941aa8193b0f0c9f1dd5fe8309d4e6c41d51f79a0340436dffa68531cc1cb5ac828634a5103b1e54b2bae6dea8f9a94bb41a72b797ab6178263845e49c84c9012a9b585f70c9e505b426e084171821adeeb60318ddb07e7b6d2de995846189adb92fd81727ccfdef223df9c33447585e9f840fe3acd7f9b09f872466448d516d186498f6c919a8deddbcecc076dab0cf871c87e9d13e645609ba2fd68fe410bb2ac3660dd08e666567e962c2f85bd6d46eef0576006d9229ac18fc4c43c7", 16)
+private_exponent = int("0xc875b296180a3264f75bb17911f0e2e5e30e34ae7003f0a42c92fa4b82d363a7fe970628f17d568457b1e5c3939ec5ccdd3e321566e86d8f2f56ac447609b650f036c22484b5e614ad5512742a4bb672a1541b0191ac1c9054d0cad2ab8bdbff5e4681b098cd28f7d9ce367f74f323b7ea021d7f7dc550e40e50352026a53feab7999d76379ea80f690b6f15a36aa829c2d530ff1562d4fd56d51fa2719c5e7b935a926e6dc2c34652a26235b0e416afe9cf75977d6155b04620448173d0d4ccae9b48ac68ec0bf4fe9f29009e6d6322c53cc0691728885064fcbe01b8ab754975663e1479cdbcf2f12687ef9edced4d5de375006413830492eea78460ad574d", 16)
+public_exponent = int("0x10001", 16)  # Assuming 65537 as your public exponent, which is a common choice
+
+key = RSA.construct((modulus, public_exponent, private_exponent))
+
+# Now you can use `key` for decryption, assuming you have a valid ciphertext.
+
+# Load the provided keys
+public_key = RSA.import_key(public_key_string)
+private_key = RSA.import_key(private_key_string)
+
+# If you have an encrypted message:
+encrypted_message = public_exponent'  # This would typically be read from a file or received from some source
+
+# Decrypt the message using the private key
+cipher = PKCS1_OAEP.new(private_key)
+decrypted_message = cipher.decrypt(encrypted_message)
+
+print(decrypted_message.decode())
