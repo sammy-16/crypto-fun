@@ -1,0 +1,10 @@
+import base64
+import os
+
+# Generate a random 64 bytes string
+random_bytes = b'\xbe\x9e0\xf0_\xbd\xbf\xcf\xeer\xf4\xa8\xae\x9es\xa1}IMP\xdd\x1a\x96\xdf6\xb2\xec\xba_X\x1a1]\x19\xd5\x1a\xb0f>\xd7\t\x9c\x90\x8bG%\x83jN\x9b\xc4\x0b k1\x9c\xaa-w\xe1b\x90\xdaq'
+
+# Encode the random bytes to base64
+base64_encoded = base64.b64encode(random_bytes)
+
+print(base64_encoded)
